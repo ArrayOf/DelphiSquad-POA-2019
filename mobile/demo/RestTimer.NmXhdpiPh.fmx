@@ -1,0 +1,52 @@
+inherited FormRestTimer_NmXhdpiPh: TFormRestTimer_NmXhdpiPh
+  Caption = 'Rest'
+  ClientHeight = 615
+  ClientWidth = 400
+  DesignerMasterStyle = 0
+  inherited MapView: TMapView
+    Size.Width = 400.000000000000000000
+    Size.Height = 543.000000000000000000
+  end
+  inherited Layout1: TLayout
+    Size.Width = 400.000000000000000000
+    inherited Switch1: TSwitch
+      Margins.Right = 20.000000000000000000
+      Position.X = 336.000000000000000000
+      Position.Y = 12.000000000000000000
+      Size.Width = 44.000000000000000000
+      Size.Height = 26.000000000000000000
+      OnSwitch = Switch1Switch
+    end
+    inherited RadioButton1: TRadioButton
+      Margins.Left = 10.000000000000000000
+      Position.X = 10.000000000000000000
+      OnChange = RadioButton1Change
+    end
+    inherited RadioButton2: TRadioButton
+      Align = Left
+      IsChecked = True
+      Margins.Left = 10.000000000000000000
+      Position.X = 140.000000000000000000
+      Size.Height = 50.000000000000000000
+      Size.PlatformDefault = False
+      OnChange = RadioButton2Change
+    end
+  end
+  inherited Label2: TLabel
+    ControlType = Platform
+    Position.Y = 593.000000000000000000
+    Size.Width = 400.000000000000000000
+    Size.Height = 22.000000000000000000
+    Text = 'Aguardando localiza'#231#227'o'
+  end
+  inherited Timer1: TTimer [3]
+  end
+  inherited LocationSensor: TLocationSensor [4]
+  end
+  inherited RESTClient1: TRESTClient [5]
+    BaseURL = 'https://delphisquad.free.beeceptor.com/my/api/path'
+  end
+  inherited RESTRequest1: TRESTRequest [6]
+    Left = 224
+  end
+end

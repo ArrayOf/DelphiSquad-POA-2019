@@ -1,0 +1,79 @@
+object FormRestTimer: TFormRestTimer
+  Left = 0
+  Top = 0
+  Caption = 'LocationSensor'
+  ClientHeight = 512
+  ClientWidth = 388
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  DesignerMasterStyle = 0
+  object MapView: TMapView
+    Align = Client
+    Size.Width = 388.000000000000000000
+    Size.Height = 445.000000000000000000
+    Size.PlatformDefault = False
+  end
+  object Layout1: TLayout
+    Align = Top
+    Size.Width = 388.000000000000000000
+    Size.Height = 50.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    object Switch1: TSwitch
+      Align = MostRight
+      IsChecked = False
+      Position.X = 310.000000000000000000
+      Size.Width = 78.000000000000000000
+      Size.Height = 50.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+    end
+    object RadioButton1: TRadioButton
+      Align = MostLeft
+      Size.Width = 120.000000000000000000
+      Size.Height = 50.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
+      Text = 'Orelh'#227'o'
+    end
+    object RadioButton2: TRadioButton
+      Align = Center
+      TabOrder = 2
+      Text = 'Passageiro'
+    end
+  end
+  object Label2: TLabel
+    Align = Bottom
+    Position.Y = 495.000000000000000000
+    Size.Width = 388.000000000000000000
+    Size.Height = 17.000000000000000000
+    Size.PlatformDefault = False
+    Text = 'Label1'
+    TabOrder = 2
+  end
+  object LocationSensor: TLocationSensor
+    OnLocationChanged = LocationSensorLocationChanged
+    Left = 328
+    Top = 82
+  end
+  object RESTClient1: TRESTClient
+    Params = <>
+    Left = 128
+    Top = 82
+  end
+  object RESTRequest1: TRESTRequest
+    Client = RESTClient1
+    Params = <>
+    SynchronizedEvents = False
+    Left = 228
+    Top = 82
+  end
+  object Timer1: TTimer
+    Enabled = False
+    OnTimer = Timer1Timer
+    Left = 128
+    Top = 258
+  end
+end

@@ -1,0 +1,42 @@
+object FormGoogleMaps: TFormGoogleMaps
+  Left = 0
+  Top = 0
+  Caption = 'Form1'
+  ClientHeight = 527
+  ClientWidth = 399
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  DesignerMasterStyle = 3
+  object MapView: TMapView
+    Align = Client
+    Size.Width = 399.000000000000000000
+    Size.Height = 479.000000000000000000
+    Size.PlatformDefault = False
+  end
+  object PnlTitlebar: TPanel
+    Align = Top
+    Size.Width = 399.000000000000000000
+    Size.Height = 48.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    object RclTitlebar: TRectangle
+      Align = Client
+      Fill.Color = xFF1F1F21
+      Size.Width = 399.000000000000000000
+      Size.Height = 48.000000000000000000
+      Size.PlatformDefault = False
+    end
+    object LblTitle: TLabel
+      Align = Client
+      StyledSettings = [Family, Size, Style, Other]
+      Size.Width = 399.000000000000000000
+      Size.Height = 48.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.FontColor = claWhite
+      Text = 'Delphi Squad'
+      TabOrder = 1
+    end
+  end
+end
