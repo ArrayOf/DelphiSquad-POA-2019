@@ -1,0 +1,57 @@
+object FormLocationSensor: TFormLocationSensor
+  Left = 0
+  Top = 0
+  Caption = 'LocationSensor'
+  ClientHeight = 512
+  ClientWidth = 438
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  DesignerMasterStyle = 0
+  object MapView: TMapView
+    Align = Client
+    Size.Width = 438.000000000000000000
+    Size.Height = 445.000000000000000000
+    Size.PlatformDefault = False
+  end
+  object Layout1: TLayout
+    Align = Top
+    Size.Width = 438.000000000000000000
+    Size.Height = 50.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    object Switch1: TSwitch
+      IsChecked = False
+      Position.X = 248.000000000000000000
+      Size.Width = 157.000000000000000000
+      Size.Height = 50.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      OnSwitch = Switch1Switch
+    end
+    object Label1: TLabel
+      Align = VertCenter
+      Position.Y = 16.000000000000000000
+      Size.Width = 438.000000000000000000
+      Size.Height = 17.000000000000000000
+      Size.PlatformDefault = False
+      Text = 'Label1'
+      TabOrder = 1
+    end
+  end
+  object Label2: TLabel
+    Align = Bottom
+    Position.Y = 495.000000000000000000
+    Size.Width = 438.000000000000000000
+    Size.Height = 17.000000000000000000
+    Size.PlatformDefault = False
+    Text = 'Label1'
+    TabOrder = 3
+  end
+  object LocationSensor: TLocationSensor
+    OnLocationChanged = LocationSensorLocationChanged
+    Left = 328
+    Top = 80
+  end
+end

@@ -1,0 +1,18 @@
+inherited FormGoogleMaps_NmXhdpiPh: TFormGoogleMaps_NmXhdpiPh
+  ClientHeight = 615
+  ClientWidth = 400
+  DesignerMasterStyle = 3
+  inherited MapView: TMapView
+    Size.Width = 400.000000000000000000
+    Size.Height = 567.000000000000000000
+  end
+  inherited PnlTitlebar: TPanel
+    Size.Width = 400.000000000000000000
+    inherited RclTitlebar: TRectangle
+      Size.Width = 400.000000000000000000
+    end
+    inherited LblTitle: TLabel
+      Size.Width = 400.000000000000000000
+    end
+  end
+end
