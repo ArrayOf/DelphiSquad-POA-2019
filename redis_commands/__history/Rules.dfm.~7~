@@ -1,0 +1,34 @@
+object DataModule1: TDataModule1
+  OldCreateOrder = False
+  Height = 677
+  Width = 810
+  object RESTClient1: TRESTClient
+    BaseURL = 'https://maps.googleapis.com/maps/api/'
+    Params = <
+      item
+        Kind = pkQUERY
+        Name = 'key'
+        Value = 'AIzaSyDxZv3XIiP6Yb8rSfxOfhWlgyETb0AZ15g'
+      end
+      item
+        Kind = pkQUERY
+        Name = 'size'
+        Value = '500x400'
+      end>
+    Left = 80
+    Top = 32
+  end
+  object RESTRequest1: TRESTRequest
+    Client = RESTClient1
+    Params = <>
+    Resource = 'staticmap'
+    Response = RESTResponse1
+    SynchronizedEvents = False
+    Left = 80
+    Top = 104
+  end
+  object RESTResponse1: TRESTResponse
+    Left = 80
+    Top = 184
+  end
+end

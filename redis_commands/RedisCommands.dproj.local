@@ -1,9 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BorlandProject>
-  <Transactions>
-    <Transaction>2019/09/21 19:38:22.083,=E:\DelphiProjects\Unit1.pas</Transaction>
-    <Transaction>2019/09/21 20:33:51.746,E:\ArrayOf_DelphiSquad-POA-2019\redis_commands\Main.pas=E:\DelphiProjects\Unit1.pas</Transaction>
-    <Transaction>2019/09/21 20:33:51.746,E:\ArrayOf_DelphiSquad-POA-2019\redis_commands\Main.dfm=E:\DelphiProjects\Unit1.dfm</Transaction>
-    <Transaction>2019/09/21 20:34:23.446,E:\ArrayOf_DelphiSquad-POA-2019\redis_commands\RedisCommands.dproj=E:\DelphiProjects\Project1.dproj</Transaction>
+	<Transactions>
+    <Transaction>2019/09/21 19:38:22.000.083,=E:\DelphiProjects\Unit1.pas</Transaction>
+    <Transaction>2019/09/21 20:33:51.000.746,E:\ArrayOf_DelphiSquad-POA-2019\redis_commands\Main.pas=E:\DelphiProjects\Unit1.pas</Transaction>
+    <Transaction>2019/09/21 20:33:51.000.746,E:\ArrayOf_DelphiSquad-POA-2019\redis_commands\Main.dfm=E:\DelphiProjects\Unit1.dfm</Transaction>
+    <Transaction>2019/09/21 20:34:23.000.446,E:\ArrayOf_DelphiSquad-POA-2019\redis_commands\RedisCommands.dproj=E:\DelphiProjects\Project1.dproj</Transaction>
+    <Transaction>2019/09/21 21:03:04.000.961,=E:\ArrayOf_DelphiSquad-POA-2019\redis_commands\Unit1.pas</Transaction>
+    <Transaction>2019/09/21 21:03:22.000.582,E:\ArrayOf_DelphiSquad-POA-2019\redis_commands\Rules.dfm=E:\ArrayOf_DelphiSquad-POA-2019\redis_commands\Unit1.dfm</Transaction>
+    <Transaction>2019/09/21 21:03:22.000.582,E:\ArrayOf_DelphiSquad-POA-2019\redis_commands\Rules.pas=E:\ArrayOf_DelphiSquad-POA-2019\redis_commands\Unit1.pas</Transaction>
   </Transactions>
 </BorlandProject>
