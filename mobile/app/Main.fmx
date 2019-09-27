@@ -1,11 +1,134 @@
-object Form1: TForm1
+object MainForm: TMainForm
   Left = 0
   Top = 0
-  Caption = 'Form1'
-  ClientHeight = 510
-  ClientWidth = 353
-  FormFactor.Width = 320
-  FormFactor.Height = 480
+  Caption = 'Ca'#231'a Bus'#227'o'
+  ClientHeight = 567
+  ClientWidth = 384
+  FormFactor.Width = 1440
+  FormFactor.Height = 900
   FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
   DesignerMasterStyle = 0
+  object Header: TToolBar
+    Size.Width = 384.000000000000000000
+    Size.Height = 48.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    object HeaderLabel: TLabel
+      Align = Contents
+      StyledSettings = [Style, FontColor]
+      Size.Width = 384.000000000000000000
+      Size.Height = 48.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = 'toollabel'
+      TextSettings.Font.Family = 'Microsoft Sans Serif'
+      TextSettings.Font.Size = 20.000000000000000000
+      TextSettings.HorzAlign = Center
+      Text = 'Ca'#231'a Bus'#227'o'
+    end
+  end
+  object Footer: TToolBar
+    Align = Bottom
+    Position.Y = 519.000000000000000000
+    Size.Width = 384.000000000000000000
+    Size.Height = 48.000000000000000000
+    Size.PlatformDefault = False
+    StyleLookup = 'bottomtoolbar'
+    TabOrder = 1
+    object FooterLabel: TLabel
+      Align = Contents
+      Size.Width = 384.000000000000000000
+      Size.Height = 48.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = 'toollabel'
+      TextSettings.HorzAlign = Center
+      TabOrder = 0
+    end
+  end
+  object MapView: TMapView
+    Align = Client
+    Size.Width = 384.000000000000000000
+    Size.Height = 471.000000000000000000
+    Size.PlatformDefault = False
+    object PlSearch: TPanel
+      Anchors = [akLeft, akTop, akRight]
+      ControlType = Platform
+      Position.X = 16.000000000000000000
+      Position.Y = 24.000000000000000000
+      Size.Width = 345.000000000000000000
+      Size.Height = 42.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      object EdtBus: TEdit
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        Align = Client
+        TabOrder = 0
+        ControlType = Platform
+        Hint = 'Qual o c'#243'digo da linha'
+        Size.Width = 296.000000000000000000
+        Size.Height = 42.000000000000000000
+        Size.PlatformDefault = False
+      end
+      object RtlSearch: TRectangle
+        Align = MostRight
+        Fill.Color = xFF20AF09
+        Position.X = 296.000000000000000000
+        Size.Width = 49.000000000000000000
+        Size.Height = 42.000000000000000000
+        Size.PlatformDefault = False
+        OnClick = RtlSearchClick
+        object ImgSearch: TImage
+          MultiResBitmap = <
+            item
+              Width = 48
+              Height = 48
+              PNG = {
+                89504E470D0A1A0A0000000D49484452000000300000003008060000005702F9
+                87000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
+                035B494441546843ED99CB6A1441188533A3EECC65938D2E8C2B45706D143418
+                453024F8043E80189F218A06047D1937514605A30B37AE12883BC18531978D97
+                8D1732F13B3DA74227C1F47D7A0273E05095BFBACEA9BFBB525D5D33D047CD68
+                B8CC8CEDEDED613845F5063C054FC09350F80257E167D86A341A0BF0BB1A6A47
+                BBDD9E812DF887045241D7BACF8C65BA0FCC2FC2B71E537C5077E15578060E9A
+                AA2BA6B65DC9525F84E396AD1E781EC1F069C73E1AC01A9CA53AEC4B12A16BD5
+                07AE4722C09A4D5F520D3090F1731BFE8273548FBB3933D4178D07F0B7351728
+                52DF884C903006CB365A8797DC5418685D861BD65E86436E2A07E83611D5DD91
+                C10AD42A532A901E93B63DE455DE7442309AF394BAF3A50F3E000B25B169AF27
+                0E170342E316D49C2F6DDAFC0F78683A45AB14E50587F3039168A9A49C73A872
+                E0F5D09E8B0EE5030233165AA3C8BDDA64057E7A77847FEA6987B383CE2D8BCC
+                3AD435E079CFDE2D87B281BE5A36F576D57CAC666D3E00788EE4F1DF59BAE834
+                C586EB18D537756CBCF0FC46B1A83130969B9D6832E26BAF7695C23397752078
+                87B124229E4058EF575CD681E09DFADD134F40FB7941FBF85AC0F409DE612CE9
+                C13FCF4FE69E56814187BA0E797B0C3F1C4A4479FB8F72917A5CF10BF5192864
+                7F7C258129143E49D75C26229E40FEF95712983DC13B5702FA0017CEB9AC03C1
+                FB93CB44C41308AFF05B2EEB40F0CEBE9DE0F1F5CA56620B8E3A9C889D27E0ED
+                83B6117A95DFEE44BB0779CA9BEAFB66B3B9D98966049987EDB4BEC4BAF63EC0
+                6B0816DF4E0B08840F9A470E550EBCE6E5093E38941F88854F4ACDC72B0E5706
+                3C26ECD5C6F6BAC3C58056F8A8D707F798C3A503FDD3F6101E3B5C1C88ED3A56
+                A1283D0969A2FDD11EEF288EBAA91C20183FD8DA84136E2A0C694953DA02F525
+                987AE94C0DB4954478129AA7F330F7EA445FAD36D208C7286FE192EB9525A1E9
+                143FDCDD80FA001FF12589D0B5EAA3BED6D8A2B80F75703C0AAB4D4240781CEE
+                3D5E7F0975EA3C49E82C6574BCEEFAA4DB744D74C705EABAEBBB0ECCF8BB3B49
+                08884FC3AC3F70FC85AFE0A465F681B65C4914FD8949A7077B7F6292E62ADB82
+                AFB46B57F982BA7E66D2A9C381F0A05F73ED79FA2E53BF967B5B5117F23E899E
+                423F895E413F895E413F895EC19E24EE387CB8E0240EE7E0F76360E01F99F7AA
+                E1B0982AD60000000049454E44AE426082}
+            end>
+          Align = Center
+          Margins.Left = 8.000000000000000000
+          Margins.Top = 8.000000000000000000
+          Margins.Right = 8.000000000000000000
+          Margins.Bottom = 8.000000000000000000
+          Size.Width = 24.000000000000000000
+          Size.Height = 24.000000000000000000
+          Size.PlatformDefault = False
+        end
+      end
+    end
+  end
+  object LocationSensor: TLocationSensor
+    OnLocationChanged = LocationSensorLocationChanged
+    Left = 304
+    Top = 464
+  end
 end

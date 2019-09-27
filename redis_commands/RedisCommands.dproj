@@ -139,7 +139,7 @@
                 </Excluded_Packages>
             </Delphi.Personality>
             <Deployment Version="3">
-                <DeployFile LocalName="Win32\Debug\RedisCommands.exe" Configuration="Debug" Class="ProjectOutput">
+                <DeployFile LocalName="E:\delphi_squad_poa_2019\bin\RedisCommands.exe" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win32">
                         <RemoteName>RedisCommands.exe</RemoteName>
                         <Overwrite>true</Overwrite>

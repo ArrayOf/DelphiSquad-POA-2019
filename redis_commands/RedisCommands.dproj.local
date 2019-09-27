@@ -2,15 +2,16 @@
 <BorlandProject>
 	<Transactions>
     <Transaction>2019/09/21 19:38:22.000.083,=E:\DelphiProjects\Unit1.pas</Transaction>
-    <Transaction>2019/09/21 20:33:51.000.746,E:\DelphiProjects\Unit1.dfm=E:\ArrayOf_DelphiSquad-POA-2019\redis_commands\Main.dfm</Transaction>
-    <Transaction>2019/09/21 20:33:51.000.746,E:\DelphiProjects\Unit1.pas=E:\ArrayOf_DelphiSquad-POA-2019\redis_commands\Main.pas</Transaction>
-    <Transaction>2019/09/21 20:34:23.000.446,E:\DelphiProjects\Project1.dproj=E:\ArrayOf_DelphiSquad-POA-2019\redis_commands\RedisCommands.dproj</Transaction>
+    <Transaction>2019/09/21 20:33:51.000.746,E:\ArrayOf_DelphiSquad-POA-2019\redis_commands\Main.dfm=E:\DelphiProjects\Unit1.dfm</Transaction>
+    <Transaction>2019/09/21 20:33:51.000.746,E:\ArrayOf_DelphiSquad-POA-2019\redis_commands\Main.pas=E:\DelphiProjects\Unit1.pas</Transaction>
+    <Transaction>2019/09/21 20:34:23.000.446,E:\ArrayOf_DelphiSquad-POA-2019\redis_commands\RedisCommands.dproj=E:\DelphiProjects\Project1.dproj</Transaction>
     <Transaction>2019/09/21 21:03:04.000.961,=E:\ArrayOf_DelphiSquad-POA-2019\redis_commands\Unit1.pas</Transaction>
-    <Transaction>2019/09/21 21:03:22.000.582,E:\ArrayOf_DelphiSquad-POA-2019\redis_commands\Unit1.pas=E:\ArrayOf_DelphiSquad-POA-2019\redis_commands\Rules.pas</Transaction>
-    <Transaction>2019/09/21 21:03:22.000.582,E:\ArrayOf_DelphiSquad-POA-2019\redis_commands\Unit1.dfm=E:\ArrayOf_DelphiSquad-POA-2019\redis_commands\Rules.dfm</Transaction>
+    <Transaction>2019/09/21 21:03:22.000.582,E:\ArrayOf_DelphiSquad-POA-2019\redis_commands\Rules.dfm=E:\ArrayOf_DelphiSquad-POA-2019\redis_commands\Unit1.dfm</Transaction>
+    <Transaction>2019/09/21 21:03:22.000.582,E:\ArrayOf_DelphiSquad-POA-2019\redis_commands\Rules.pas=E:\ArrayOf_DelphiSquad-POA-2019\redis_commands\Unit1.pas</Transaction>
     <Transaction>2019/09/24 22:58:35.000.981,=E:\ArrayOf_DelphiSquad-POA-2019\redis_commands\Unit1.pas</Transaction>
-    <Transaction>2019/09/24 22:58:58.000.212,E:\ArrayOf_DelphiSquad-POA-2019\redis_commands\LoadEPTCData.pas=E:\ArrayOf_DelphiSquad-POA-2019\redis_commands\Unit1.pas</Transaction>
+    <Transaction>2019/09/24 22:58:58.000.212,E:\ArrayOf_DelphiSquad-POA-2019\redis_commands\Unit1.pas=E:\ArrayOf_DelphiSquad-POA-2019\redis_commands\LoadEPTCData.pas</Transaction>
     <Transaction>2019/09/26 15:18:20.000.017,=E:\ArrayOf_DelphiSquad-POA-2019\redis_commands\Unit1.pas</Transaction>
-    <Transaction>2019/09/26 15:18:46.000.184,E:\ArrayOf_DelphiSquad-POA-2019\redis_commands\Unit1.pas=E:\ArrayOf_DelphiSquad-POA-2019\redis_commands\QueryEPTC.pas</Transaction>
+    <Transaction>2019/09/26 15:18:46.000.184,E:\ArrayOf_DelphiSquad-POA-2019\redis_commands\QueryEPTC.pas=E:\ArrayOf_DelphiSquad-POA-2019\redis_commands\Unit1.pas</Transaction>
+    <Transaction>2019/09/27 10:00:11.383,=E:\ArrayOf_DelphiSquad-POA-2019\redis_commands\Unit1.pas</Transaction>
   </Transactions>
 </BorlandProject>

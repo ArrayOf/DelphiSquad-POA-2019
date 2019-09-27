@@ -37,6 +37,8 @@ type
     LabeledEdit1: TLabeledEdit;
     LabeledEdit2: TLabeledEdit;
     Button3: TButton;
+    Button4: TButton;
+    Button6: TButton;
     procedure Button1Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure Button2Click(Sender: TObject);
@@ -45,6 +47,8 @@ type
     procedure LabeledEdit1Change(Sender: TObject);
     procedure Button3Click(Sender: TObject);
     procedure LabeledEdit2Change(Sender: TObject);
+    procedure Button4Click(Sender: TObject);
+    procedure Button6Click(Sender: TObject);
   private
     { Private declarations }
     FLoadTask: ITask;
@@ -115,6 +119,12 @@ begin
   Screen.Cursor := crDefault;
 end;
 
+procedure TForm1.Button4Click(Sender: TObject);
+begin
+  DataModule1.ActiveServer;
+  Self.Button4.Enabled := False;
+end;
+
 procedure TForm1.Button5Click(Sender: TObject);
 var
   sDirName: string;
@@ -133,6 +143,21 @@ begin
   Self.Timer1.Enabled  := True;
 
   Application.ProcessMessages;
+end;
+
+procedure TForm1.Button6Click(Sender: TObject);
+var
+  oResponse: TStringStream;
+begin
+  Screen.Cursor := crHourGlass;
+  oResponse     := nil;
+  try
+    oResponse := DataModule1.GetNearbyBusStop('244-1');
+    Self.ShowMap(oResponse);
+  finally
+    oResponse.Free;
+    Screen.Cursor := crDefault;
+  end;
 end;
 
 procedure TForm1.FormCreate(Sender: TObject);

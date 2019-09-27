@@ -44,17 +44,8 @@ object DataModule1: TDataModule1
     Params = <
       item
         Kind = pkQUERY
-        Name = 'center'
-        Value = '-30.0428357,-51.2188929'
-      end
-      item
-        Kind = pkQUERY
-        Name = 'zoom'
-        Value = '16'
-      end
-      item
-        Kind = pkQUERY
         Name = 'markers'
+        Options = [poFlatArray]
         Value = 'color:red|-30.0428357,-51.2188929'
       end>
     Response = RESTResponse2
@@ -66,5 +57,23 @@ object DataModule1: TDataModule1
     ContentType = 'text/plain'
     Left = 232
     Top = 184
+  end
+  object DSServer1: TDSServer
+    AutoStart = False
+    Left = 456
+    Top = 32
+  end
+  object DSHTTPService1: TDSHTTPService
+    Server = DSServer1
+    Filters = <>
+    Left = 456
+    Top = 104
+  end
+  object DSServerClass1: TDSServerClass
+    OnGetClass = DSServerClass1GetClass
+    Server = DSServer1
+    LifeCycle = 'Invocation'
+    Left = 456
+    Top = 176
   end
 end

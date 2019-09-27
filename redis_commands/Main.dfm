@@ -113,6 +113,24 @@ object Form1: TForm1
         TabOrder = 2
         OnClick = Button5Click
       end
+      object Button4: TButton
+        Left = 8
+        Top = 376
+        Width = 145
+        Height = 25
+        Caption = 'ABRIR SERVIDOR DS'
+        TabOrder = 3
+        OnClick = Button4Click
+      end
+      object Button6: TButton
+        Left = 8
+        Top = 119
+        Width = 145
+        Height = 25
+        Caption = 'CONSULTAR'
+        TabOrder = 4
+        OnClick = Button6Click
+      end
     end
   end
   object Panel2: TPanel
