@@ -3,12 +3,13 @@ object DataModule1: TDataModule1
   Height = 677
   Width = 810
   object RESTClient1: TRESTClient
+    Accept = 'application/json, text/plain; q=0.9, text/html;q=0.8,'
+    AcceptCharset = 'utf-8, *;q=0.8'
     BaseURL = 'https://maps.googleapis.com/maps/api/staticmap'
     Params = <
       item
         Kind = pkQUERY
         Name = 'key'
-        Value = 'AIzaSyDxZv3XIiP6Yb8rSfxOfhWlgyETb0AZ15g'
       end
       item
         Kind = pkQUERY
@@ -42,12 +43,19 @@ object DataModule1: TDataModule1
     Client = RESTClient1
     Params = <
       item
+        Kind = pkQUERY
         Name = 'center'
-        Value = '-23.5193955,-46.7018535'
+        Value = '-30.0428357,-51.2188929'
       end
       item
+        Kind = pkQUERY
         Name = 'zoom'
         Value = '16'
+      end
+      item
+        Kind = pkQUERY
+        Name = 'markers'
+        Value = 'color:red|-30.0428357,-51.2188929'
       end>
     Response = RESTResponse2
     SynchronizedEvents = False
@@ -55,6 +63,7 @@ object DataModule1: TDataModule1
     Top = 104
   end
   object RESTResponse2: TRESTResponse
+    ContentType = 'text/plain'
     Left = 232
     Top = 184
   end

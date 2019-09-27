@@ -4,7 +4,7 @@ object Form1: TForm1
   Caption = 
     'Exemplo - Palestra Geolocaliza'#231#227'o com Redis - Delphi Squad POA 2' +
     '019'
-  ClientHeight = 843
+  ClientHeight = 638
   ClientWidth = 993
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -21,7 +21,7 @@ object Form1: TForm1
     Left = 0
     Top = 0
     Width = 993
-    Height = 768
+    Height = 563
     Align = alClient
     Caption = 'Panel4'
     ShowCaption = False
@@ -30,7 +30,7 @@ object Form1: TForm1
       Left = 169
       Top = 1
       Width = 823
-      Height = 766
+      Height = 561
       Align = alClient
       BevelOuter = bvNone
       Caption = 'Panel1'
@@ -41,7 +41,7 @@ object Form1: TForm1
         Left = 3
         Top = 3
         Width = 817
-        Height = 760
+        Height = 555
         ActivePage = TabSheet2
         Align = alClient
         TabOrder = 0
@@ -51,7 +51,7 @@ object Form1: TForm1
             Left = 0
             Top = 0
             Width = 809
-            Height = 732
+            Height = 527
             Align = alClient
             Center = True
             ExplicitLeft = 208
@@ -67,7 +67,7 @@ object Form1: TForm1
             Left = 0
             Top = 0
             Width = 809
-            Height = 732
+            Height = 527
             Align = alClient
             Lines.Strings = (
               'Memo1')
@@ -80,7 +80,7 @@ object Form1: TForm1
       Left = 1
       Top = 1
       Width = 168
-      Height = 766
+      Height = 561
       Align = alLeft
       BevelInner = bvLowered
       Caption = 'Panel3'
@@ -104,28 +104,20 @@ object Form1: TForm1
         TabOrder = 1
         OnClick = Button2Click
       end
-      object Button3: TButton
+      object Button5: TButton
         Left = 8
-        Top = 96
+        Top = 88
         Width = 145
         Height = 25
-        Caption = 'INSERIR ORELH'#213'ES'
+        Caption = 'INSERIR PARADAS'
         TabOrder = 2
-        OnClick = Button3Click
-      end
-      object Button4: TButton
-        Left = 8
-        Top = 159
-        Width = 145
-        Height = 25
-        Caption = 'ORELH'#195'O MAIS PR'#211'XIMO'
-        TabOrder = 3
+        OnClick = Button5Click
       end
     end
   end
   object Panel2: TPanel
     Left = 0
-    Top = 768
+    Top = 563
     Width = 993
     Height = 75
     Align = alBottom
@@ -721,12 +713,47 @@ object Form1: TForm1
         426082}
       Stretch = True
     end
+    object LabeledEdit1: TLabeledEdit
+      Left = 9
+      Top = 40
+      Width = 288
+      Height = 21
+      Alignment = taCenter
+      EditLabel.Width = 175
+      EditLabel.Height = 13
+      EditLabel.Caption = 'Chave de API do Google Maps Static'
+      TabOrder = 0
+      Text = 'AIzaSyDxZv3XIiP6Yb8rSfxOfhWlgyETb0AZ15g'
+      OnChange = LabeledEdit1Change
+    end
+    object LabeledEdit2: TLabeledEdit
+      Left = 320
+      Top = 40
+      Width = 328
+      Height = 21
+      Alignment = taCenter
+      EditLabel.Width = 78
+      EditLabel.Height = 13
+      EditLabel.Caption = 'Acesso ao Redis'
+      TabOrder = 1
+      Text = 'localhost:6379'
+      OnChange = LabeledEdit2Change
+    end
+    object Button3: TButton
+      Left = 654
+      Top = 38
+      Width = 75
+      Height = 25
+      Caption = 'TESTAR'
+      TabOrder = 2
+      OnClick = Button3Click
+    end
   end
   object Timer1: TTimer
     Enabled = False
     Interval = 1500
     OnTimer = Timer1Timer
     Left = 32
-    Top = 244
+    Top = 492
   end
 end

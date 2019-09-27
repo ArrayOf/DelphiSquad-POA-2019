@@ -12,6 +12,8 @@ uses
   Data.Bind.ObjectScope,
   REST.Client,
 
+  LoadEPTCData,
+
   Redis.Client,
   Redis.Commons,
   Redis.NetLib.INDY
@@ -19,6 +21,7 @@ uses
     ;
 
 type
+
   TDataModule1 = class(TDataModule)
     RESTClient1: TRESTClient;
     RESTRequest1: TRESTRequest;
@@ -26,12 +29,21 @@ type
     RESTRequest2: TRESTRequest;
     RESTResponse2: TRESTResponse;
   private
-    { Private declarations }
+    FRedisHost    : string;
+    FRedisPort    : Integer;
+    FRedisHostPort: string;
+    function GetGoogleAPIKey: string;
+    procedure SetGoogleAPIKey(const Value: string);
+    procedure SetRedisHostPort(const Value: string);
   public
-    { Public declarations }
+    function TestRedis: Boolean;
     function GetMap: TStringStream;
     function WhereAreWe: TStringStream;
-    function LoadListTUP(const AFileName: string): IFuture<Integer>;
+    function LoadEPTC(const APath: string; ALog: TProcessLine): ITask;
+    property GoogleAPIKey: string read GetGoogleAPIKey write SetGoogleAPIKey;
+    property RedisHostPort: string read FRedisHostPort write SetRedisHostPort;
+    property RedisHost: string read FRedisHost;
+    property RedisPort: Integer read FRedisPort;
   end;
 
 var
@@ -41,11 +53,16 @@ implementation
 
 {%CLASSGROUP 'Vcl.Controls.TControl'}
 
-uses Main;
+uses
+  Main;
+
 {$R *.dfm}
 { TDataModule1 }
 
-{ TDataModule1 }
+function TDataModule1.GetGoogleAPIKey: string;
+begin
+  Result := Self.RESTClient1.Params.ParameterByName('key').Value;
+end;
 
 function TDataModule1.GetMap: TStringStream;
 begin
@@ -56,70 +73,73 @@ begin
   Result.Seek(0, 0);
 end;
 
-function TDataModule1.LoadListTUP(const AFileName: string): IFuture<Integer>;
+function TDataModule1.LoadEPTC(const APath: string; ALog: TProcessLine): ITask;
 var
-  maTUPLoad: TFunc<Integer>;
+  maEPTCLoad: TProc;
 begin
-  if not FileExists(AFileName) then
-  begin
-    raise Exception.CreateFmt('O arquivo [%s] não existe!', [AFileName]);
-  end;
-
-  maTUPLoad := function: Integer
+  maEPTCLoad := procedure
     var
-      hFileTUP   : TextFile;
-      sLine      : string;
-      iLinesCount: Integer;
-      oRedis     : IRedisClient;
-      slFields   : TStringList;
-      eLat       : Extended;
-      eLng       : Extended;
-      sNumber    : string;
+      oLoader: TLoadEPTC;
     begin
-      slFields                 := TStringList.Create;
-      slFields.StrictDelimiter := True;
-      slFields.Delimiter       := ',';
-      slFields.QuoteChar       := '"';
-      iLinesCount              := 0;
-
-      oRedis := TRedisClient.Create('localhost', 6379);
-      oRedis.Connect;
-      Form1.Memo1.Lines.Add('Conectado com o Redis!');
-
-      oRedis.FLUSHDB;
-
-      AssignFile(hFileTUP, AFileName);
-      Reset(hFileTUP);
+      oLoader := TLoadEPTC.Create(APath, ALog);
       try
-        Readln(hFileTUP, sLine);
-        while not Eof(hFileTUP) do
-        begin
-          Readln(hFileTUP, sLine);
-          if (sLine = EmptyStr) then
-          begin
-            Break;
-          end;
-
-          Inc(iLinesCount);
-
-          slFields.DelimitedText := sLine;
-
-          eLat    := StrToFloat(slFields[19]);
-          eLng    := StrToFloat(slFields[20]);
-          sNumber := slFields[6];
-
-          oRedis.GEOADD('DELPHISQUAD:2019:POA:ORELHAO#', eLat, eLng, sNumber);
-        end;
+        oLoader.Work(Self.RedisHost, Self.RedisPort);
       finally
-        CloseFile(hFileTUP);
-        slFields.Free;
+        oLoader.Free;
       end;
-
-      Result := iLinesCount;
-
     end;
 
-  Result := TTask.Future<Integer>(maTUPLoad)
+  Result := TTask.Run(maEPTCLoad);
+end;
+
+procedure TDataModule1.SetGoogleAPIKey(const Value: string);
+begin
+  Self.RESTClient1.Params.ParameterByName('key').Value := Value;
+end;
+
+procedure TDataModule1.SetRedisHostPort(const Value: string);
+var
+  slParts: TStringList;
+  sHost  : string;
+  sPort  : string;
+begin
+  slParts := TStringList.Create;
+  try
+    slParts.Delimiter       := ':';
+    slParts.StrictDelimiter := True;
+    slParts.DelimitedText   := Value;
+
+    sHost := slParts[0];
+    if slParts.Count > 1 then
+    begin
+      sPort := slParts[1];
+    end else begin
+      sPort := '6379';
+    end;
+  finally
+    slParts.Free;
+  end;
+
+  Self.FRedisHostPort := Value;
+  Self.FRedisHost     := sHost;
+  Self.FRedisPort     := StrToInt(sPort);
+end;
+
+function TDataModule1.TestRedis: Boolean;
+var
+  oRedis: IRedisClient;
+begin
+  try
+    oRedis := TRedisClient.Create(Self.RedisHost, Self.RedisPort);
+    oRedis.Connect;
+
+    Result := True;
+  except
+    on E: Exception do
+    begin
+      Result := False;
+    end;
+  end;
 end;
 
 function TDataModule1.WhereAreWe: TStringStream;

@@ -26,8 +26,6 @@ type
     Panel3: TPanel;
     Button1: TButton;
     Button2: TButton;
-    Button3: TButton;
-    Button4: TButton;
     Panel4: TPanel;
     PageControl1: TPageControl;
     TabSheet1: TTabSheet;
@@ -35,14 +33,21 @@ type
     ImageMapa: TImage;
     Memo1: TMemo;
     Timer1: TTimer;
+    Button5: TButton;
+    LabeledEdit1: TLabeledEdit;
+    LabeledEdit2: TLabeledEdit;
+    Button3: TButton;
     procedure Button1Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure Button2Click(Sender: TObject);
-    procedure Button3Click(Sender: TObject);
     procedure Timer1Timer(Sender: TObject);
+    procedure Button5Click(Sender: TObject);
+    procedure LabeledEdit1Change(Sender: TObject);
+    procedure Button3Click(Sender: TObject);
+    procedure LabeledEdit2Change(Sender: TObject);
   private
     { Private declarations }
-    FLoadTask: IFuture<Integer>;
+    FLoadTask: ITask;
     procedure ShowMap(AContent: TStringStream);
   public
     { Public declarations }
@@ -57,7 +62,8 @@ implementation
 
 uses
   Rules,
-  Vcl.Imaging.jpeg;
+  Vcl.Imaging.jpeg,
+  LoadEPTCData;
 
 procedure TForm1.Button1Click(Sender: TObject);
 var
@@ -94,13 +100,36 @@ end;
 
 procedure TForm1.Button3Click(Sender: TObject);
 var
-  sFileName: string;
+  bRet: Boolean;
 begin
-  sFileName := 'E:\ArrayOf_DelphiSquad-POA-2019\dataset\TUP.csv';
+  Screen.Cursor := crHourGlass;
 
-  Self.FLoadTask := DataModule1.LoadListTUP(sFileName);
+  bRet := DataModule1.TestRedis;
+  if bRet then
+  begin
+    MessageBox(Self.Handle, 'O Redis está acessível!', 'Atenção!', MB_ICONINFORMATION + MB_OK);
+  end else begin
+    MessageBox(Self.Handle, 'O Redis *NÃO* está acessível!', 'Atenção!', MB_ICONERROR + MB_OK);
+  end;
 
-  Self.Button3.Enabled := False;
+  Screen.Cursor := crDefault;
+end;
+
+procedure TForm1.Button5Click(Sender: TObject);
+var
+  sDirName: string;
+  maLog   : TProcessLine;
+begin
+  sDirName := 'E:\ArrayOf_DelphiSquad-POA-2019\dataset';
+
+  maLog := procedure(const ALine: string)
+    begin
+      Self.Memo1.Lines.Add(ALine);
+    end;
+
+  Self.FLoadTask := DataModule1.LoadEPTC(sDirName, maLog);
+
+  Self.Button5.Enabled := False;
   Self.Timer1.Enabled  := True;
 
   Application.ProcessMessages;
@@ -108,12 +137,24 @@ end;
 
 procedure TForm1.FormCreate(Sender: TObject);
 begin
-  ReportMemoryLeaksOnShutdown := True;
+  ReportMemoryLeaksOnShutdown     := True;
   FormatSettings.DecimalSeparator := '.';
 
-  Self.FLoadTask := nil;
+  Self.FLoadTask            := nil;
+  DataModule1.GoogleAPIKey  := Self.LabeledEdit1.Text;
+  DataModule1.RedisHostPort := Self.LabeledEdit2.Text;
 
   Self.PageControl1.ActivePageIndex := 0;
+end;
+
+procedure TForm1.LabeledEdit1Change(Sender: TObject);
+begin
+  DataModule1.GoogleAPIKey := Self.LabeledEdit1.Text;
+end;
+
+procedure TForm1.LabeledEdit2Change(Sender: TObject);
+begin
+  DataModule1.RedisHostPort := Self.LabeledEdit2.Text;
 end;
 
 procedure TForm1.ShowMap(AContent: TStringStream);
@@ -151,7 +192,6 @@ begin
       TTaskStatus.Completed:
         begin
           Self.Memo1.Lines.Add('Tarefa completa!');
-          Self.Memo1.Lines.Add(Self.FLoadTask.Value.Tostring);
           Self.FLoadTask := nil;
         end;
       TTaskStatus.WaitingForChildren:
@@ -168,9 +208,8 @@ begin
     if Assigned(Self.FLoadTask) then
     begin
       Self.Timer1.Enabled := True;
-    end else
-    begin
-      Self.Button3.Enabled := True;
+    end else begin
+      Self.Button5.Enabled := True;
       Application.ProcessMessages;
     end;
   end;
