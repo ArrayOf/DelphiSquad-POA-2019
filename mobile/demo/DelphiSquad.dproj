@@ -178,10 +178,6 @@
             <Form>FormGoogleMaps</Form>
             <FormType>fmx</FormType>
         </DCCReference>
-        <DCCReference Include="RestTimer.pas">
-            <Form>FormRestTimer</Form>
-            <FormType>fmx</FormType>
-        </DCCReference>
         <DCCReference Include="LocationSensor.pas">
             <Form>FormLocationSensor</Form>
             <FormType>fmx</FormType>

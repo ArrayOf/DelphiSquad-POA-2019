@@ -16,6 +16,7 @@
         android:largeHeap="%largeHeap%"
         android:icon="%icon%"
         android:theme="%theme%"
+        android:usesCleartextTraffic="true"
         android:hardwareAccelerated="%hardwareAccelerated%"
         android:resizeableActivity="false">
 
