@@ -741,7 +741,7 @@ object Form1: TForm1
       EditLabel.Height = 13
       EditLabel.Caption = 'Chave de API do Google Maps Static'
       TabOrder = 0
-      Text = 'AIzaSyDxZv3XIiP6Yb8rSfxOfhWlgyETb0AZ15g'
+      Text = '- CRIE A SUA PRÓPRIA API KEY -'
       OnChange = LabeledEdit1Change
     end
     object LabeledEdit2: TLabeledEdit
